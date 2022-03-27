@@ -14,7 +14,6 @@ def log_request(req: 'flask_request', res: str) -> None:
 
 # --- /search4 ----
 # retorna o template e as variáveis obtidas no form.
-@app.route('/')
 @app.route('/search4', methods=['POST'])
 def do_search() -> str:
   phrase = request.form['phrase']
@@ -30,6 +29,7 @@ def do_search() -> str:
                          )
 
 
+@app.route('/')
 @app.route('/entry')
 def entry_page() -> 'html':
   return render_template('entry.html', 
